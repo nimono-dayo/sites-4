@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IPアドレス・逆引き検索ツール</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🔍 IPアドレス逆引き検索</h1>
+      <p class="subtitle">URLからIPアドレスを調べ、同じIPの他のサイトを発見</p>
+    </header>
+
+    <div class="search-section">
+      <div class="input-group">
+        <input type="text" id="urlInput" placeholder="例: example.com または https://example.com" />
+        <button id="searchBtn">検索</button>
+      </div>
+      <p class="info-text">※ HackerTarget APIを使用（無料版: 1日20回まで、最大500件）</p>
+    </div>
+
+    <div id="loadingIndicator" class="loading hidden">
+      <div class="spinner"></div>
+      <p>検索中...</p>
+    </div>
+
+    <div id="resultsSection" class="results-section hidden">
+      <div class="ip-result">
+        <h2>📍 IPアドレス情報</h2>
+        <div class="ip-box">
+          <div class="info-row">
+            <span class="label">URL:</span>
+            <span id="resultUrl" class="value"></span>
+          </div>
+          <div class="info-row">
+            <span class="label">IPアドレス:</span>
+            <span id="resultIp" class="value ip-address"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="domains-result">
+        <h2>🌐 同じIPアドレスのサイト</h2>
+        <div id="domainsCount" class="count-badge"></div>
+        <div id="domainsList" class="domains-list"></div>
+      </div>
+    </div>
+
+    <div id="errorSection" class="error-section hidden">
+      <div class="error-box">
+        <h3>❌ エラー</h3>
+        <p id="errorMessage"></p>
+      </div>
+    </div>
+
+    <footer>
+      <p>著作権について: このツールは公開されているDNSデータを使用しており、HackerTarget APIの利用規約に基づいて合法的に運用されています。</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
